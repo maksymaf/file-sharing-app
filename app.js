@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+app.use('/api/auth', require('./routes/auth.route'));
+
 async function main() {
     try{
         await mongoose.connect(process.env.MONGODB_URI)
